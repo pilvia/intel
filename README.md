@@ -2,8 +2,11 @@
 
 /root/intel.sh/config
 
+Run the command below to configure intel.sh
 
-
+```sh
+curl -s https://raw.githubusercontent.com/pilvia/intel/main/get.intel.sh | AUTH_TOKEN=$AUTH_TOKEN ENDPOINT_URL=$ENDPOINT_URL sh
+```
 
 - [Remix Docs](https://remix.run/docs)
 
