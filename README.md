@@ -1,4 +1,9 @@
-# Welcome to Remix!
+# Welcome to intel.sh!
+
+/root/intel.sh/config
+
+
+
 
 - [Remix Docs](https://remix.run/docs)
 
