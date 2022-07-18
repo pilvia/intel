@@ -7,10 +7,10 @@ if [ -z "$ENDPOINT_URL" ] || [ -z "$AUTH_TOKEN" ]; then
         exit 1;
 fi
 
-# check for commands
+# check for required binaries
 for i in curl cat grep sed tr; do
         if [ -z $(command -v "$i") ]; then
-                echo "Missing command $i.";
+                echo "Missing binary $i.";
                 exit 1;
         fi
 done
@@ -27,6 +27,6 @@ curl -s https://api.github.com/repos/pilvia/intel/commits/main | cat | grep -m 1
 
 # set crontab.
 # TODO: trial run before adding cron.
-echo "*/5 * * * * root /root/intel.sh/intel.sh >> /dev/null 2>&1" > /etc/cron.d/intel.crontab
+echo "*/5 * * * * root /root/.intel.sh/intel.sh >> /dev/null 2>&1" > /etc/cron.d/intel.crontab
 
 echo "intel.sh installed successfully."
