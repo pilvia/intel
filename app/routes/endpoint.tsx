@@ -5,8 +5,13 @@ import { ActionFunction, json } from "@remix-run/cloudflare";
 export const action: ActionFunction = async ({ request }) => {
   const data = await request.json();
   // KV save here
-  console.log(data)
-  return json({status: 'ok'});
+  if (request.method == "POST") {
+    console.log(data)
+    return json({status: 'ok'});
+  } else {
+    throw new Error('Wrong method');
+  }
+  
 };
 
 export async function loader({ }) {
