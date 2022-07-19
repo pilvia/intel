@@ -4,6 +4,7 @@ import { kv } from "~/kv";
 export const action: ActionFunction = async ({ request, context }) => {
   const data:any = await request.json();
   const db = kv(context)
+  throw new Error(JSON.stringify(context))
   // SAVE to KV
 
   if (request.method == "POST") {
