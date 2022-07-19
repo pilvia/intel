@@ -1,9 +1,10 @@
 import { json, LoaderFunction } from "@remix-run/cloudflare"; 
 import { useLoaderData } from "@remix-run/react";
+import { kv } from "~/kv";
 
 
 export const loader: LoaderFunction = async({ context }) => {
-  const db:KVNamespace = context.intelStorage
+  const db = kv(context)
  
   let data = await db.list();
   const list = []
