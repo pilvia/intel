@@ -33,7 +33,7 @@ export default function Index() {
     <h1>Pilvia Intel</h1>
     <ul>
     {hosts.map((host:any) => (
-        <li key={host.id}>{host.id}: {host.data.hostname}</li>
+        <li key={host.id}>{host.id} DATA: {JSON.stringify(host.data)}</li>
       ))}
     </ul>
     </>
