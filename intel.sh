@@ -22,7 +22,7 @@ AUTH_TOKEN=$(cat $HOME_DIR/auth_token.txt);
 ENDPOINT_ADDRESS=$(cat $HOME_DIR/endpoint_url.txt);
 
 # Update server status
-curl -X POST -H "Content-Type: application/json" -H "Authorization: $AUTH_TOKEN" $ENDPOINT_ADDRESS -d '{
+curl --insecure -X POST -H "Content-Type: application/json" -H "Authorization: $AUTH_TOKEN" $ENDPOINT_ADDRESS -d '{
   "id":"'"$MACHINE_ID"'",
   "publicIp":"'"$PUBLIC_IP"'",
   "hostName":"'"$HOSTNAME"'",
