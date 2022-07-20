@@ -14,7 +14,7 @@ if [ $(expr $CURRENT_DATE_EPOCH - $LAST_UPGRADE_CHECK_EPOCH) -gt 3599 ]; then
   OLD_HASH=$(cat $HOME_DIR/upgrade_hash.txt);
   if [ ! "$NEW_HASH" = "$OLD_HASH" ]; then
       curl -s https://raw.githubusercontent.com/pilvia/intel/main/intel.sh > $HOME_DIR/intel.sh;
-      echo $NEW_HAST > $HOME_DIR/upgrade_hash.txt;
+      echo $NEW_HASH > $HOME_DIR/upgrade_hash.txt;
   fi
 fi
 
