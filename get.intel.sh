@@ -24,6 +24,7 @@ echo $(tr -dc _A-Z-a-z-0-9 < /dev/urandom | head -c20;) > /root/.intel.sh/machin
 echo $ENDPOINT_URL > /root/.intel.sh/endpoint_url.txt;
 echo $AUTH_TOKEN > /root/.intel.sh/auth_token.txt;
 curl -s https://api.github.com/repos/pilvia/intel/commits/main | cat | grep -m 1 '"sha":' | sed -e 's/"sha": "\(.*\)",/\1/' > /root/.intel.sh/upgrade_hash.txt
+date +%s > last_upgrade_check.txt
 
 # set crontab.
 # TODO: trial run before adding cron.
