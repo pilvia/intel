@@ -1,7 +1,10 @@
 #!/bin/sh
 set -e
 
-HOME_DIR="/root/.intel.sh";
+if [ -z "$HOME_DIR" ]; then
+  HOME_DIR="/root/.intel.sh";
+fi
+
 
 # Check for an upgrade
 
@@ -23,7 +26,10 @@ MACHINE_ID=$(cat $HOME_DIR/machine_id.txt);
 PUBLIC_IP=$(curl -s ifconfig.co);
 HOSTNAME=$(hostname);
 DATE=$(date);
-DEBIAN_VERSION=$(cat /etc/debian_version);
+if test -f "/etc/debian_version"; then
+    DEBIAN_VERSION=$(cat /etc/debian_version);
+fi
+
 EXTRA="nothing";
 
 # Endpoint variables.

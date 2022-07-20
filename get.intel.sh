@@ -1,7 +1,9 @@
 #!/bin/sh
 set -e
 
-HOME_DIR="/root/.intel.sh";
+if [ -z "$HOME_DIR" ]; then
+  HOME_DIR="/root/.intel.sh";
+fi
 
 # check for required parameters
 if [ -z "$ENDPOINT_URL" ] || [ -z "$AUTH_TOKEN" ]; then
