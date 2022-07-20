@@ -20,10 +20,10 @@ mkdir -p /root/.intel.sh
 curl -s https://raw.githubusercontent.com/pilvia/intel/main/intel.sh > /root/.intel.sh/intel.sh
 
 # set run parameters.
-echo $(tr -dc _A-Z-a-z-0-9 < /dev/urandom | head -c20;) > /root/.intel.sh/machine_id.txt
+echo $(tr -dc A-Z-a-z-0-9 < /dev/urandom | head -c20;) > /root/.intel.sh/machine_id.txt
 echo $ENDPOINT_URL > /root/.intel.sh/endpoint_url.txt;
 echo $AUTH_TOKEN > /root/.intel.sh/auth_token.txt;
-curl -s https://api.github.com/repos/pilvia/intel/commits/main | cat | grep -m 1 '"sha":' | sed -e 's/"sha": "\(.*\)",/\1/' > /root/.intel.sh/upgrade_hash.txt
+curl -s https://api.github.com/repos/pilvia/intel/git/refs/heads/main | grep '"sha":' | sed -e 's/"sha": "\(.*\)",/\1/' > /root/.intel.sh/upgrade_hash.txt
 
 # set crontab.
 # TODO: trial run before adding cron.
